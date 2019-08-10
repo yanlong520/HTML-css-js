@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>精讲及实战 - 视频播放器和弹幕</title>
+    <style>
+        body {
+            background-color: bisque;
+        }
+
+        .wrap {
+            position: relative;
+            width: 310px;
+            overflow: hidden;
+        }
+
+        .progress {
+            width: 310px;
+            height: 20px;
+            background-color: antiquewhite;
+        }
+
+        .percent {
+            width: 0px;
+            height: 20px;
+            background-color: blueviolet;
+        }
+
+        .danmu {
+            position: absolute;
+            top: 0px;
+            left: 100%;
+            white-space: nowrap;
+            /* 文本不进行换行 */
+            transition: all 6s linear;
+        }
+
+        .danmu.active {
+            left: -1000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <video src="./02.mp4" width="310px" id="video"></video>
+        <!-- controls是出现控制栏的意思 -->
+        <div class="control-bar">
+            <!-- 时间展示 -->
+            <div class="time-display">
+                <span ivide id="current"></span>/
+                <span id="duration"></span>
+            </div>
+            <!-- 进度条 -->
+            <div class="progress">
+                <div class="percent" id="percent"></div>
+            </div>
+            <!-- 音量控制 -->
+            <input type="range" id="volume-control">
+            <!-- 全屏按钮 -->
+            <button type="button" id="fullScreen" style="background-color: red">fullScreen</button>
+            <!-- 弹幕 -->
+            <p class="danmu">wochulaile</p>
+        </div>
+    </div>
+
+    <script>
+        var wrap = document.getElementsByClassName('wrap')[0]
+        var video = document.getElementById('video')
+        var currentElement = document.getElementById('current')
+        var durationElement = document.getElementById('duration')
+        var percentElement = document.getElementById('percent')
+        var volumeControl = document.getElementById('volume-control')
+        var fullScreenButton = document.getElementById('fullScreen')
+        //时间转化
+        var secondsToMins = function (seconds) {
+            var min = parseInt(seconds / 60)
+            min = min > 9 ? min : '0' + min
+            var ss = seconds % 10
+            var s = parseInt(ss)
+            s = s > 9 ? s : '0' + s
+            var mins = min + ':' + s
+            return mins
+
+        }
+
+        //挂事件
+        currentElement.innerHTML = video.currentTime
+        video.addEventListener('canplay', function () {
+            durationElement.innerHTML = secondsToMins(video.duration)
+        })
+        //实时更新的事件
+        video.addEventListener('timeupdate', function () {
+            // console.log(video.currentTime)
+            currentElement.innerHTML = secondsToMins(video.currentTime)
+            var percent = goPrecent()
+            setPercent(percent)
+            progressDanmu()
+            
+        })
+
+        //计算百分比
+        var goPrecent = function () {
+            return video.currentTime / video.duration
+
+        }
+        //设置进度条
+        var setPercent = function (percent) {
+            percentElement.style.width = percent * 1000 + 'px'
+        }
+        //音量控制
+        volumeControl.addEventListener('change', function () {
+            //console.log(this.value)
+            //volume  [0-1]
+            var v = parseInt(this.value) / 100
+            video.volume = v
+        })
+        //进入全屏
+        fullScreenButton.addEventListener('click', function () {
+            video.webkitRequestFullscreen()
+        })
+        var isPlaying = false
+
+        video.addEventListener('click', function () {
+            if (isPlaying) {
+                video.pause()
+                isPlaying = false
+            } else {
+                video.play()
+                isPlaying = true
+            }
+        })
+
+        var danmuList = [
+            {
+                time: 2111,
+                content: '这个大爷很利好'
+            },
+            {
+                time: 4011,
+                content: 'henkaixin'
+            },
+            {
+                time: 3011,
+                content: '今天很开心'
+            }
+        ]
+
+        var orderDanmu = function () {
+            // 排序方法：
+            // var arr = [45, 12, 3, 4, 21, 8]
+            // arr.sort(function (a, b) {
+            //      return a - b //顺序
+            //      return  b- a //倒序
+            //     })
+            //删除方法
+            //arr.shift()//删除数组的第一项;  返回第一项数据
+            danmuList.sort(function (a, b) {
+                return a.time - b.time
+            })
+        }
+        orderDanmu()
+        // //此时的orderDanmu数组是已经按照事件顺序排序好的数组
+
+        var sendDanmu = function(content){
+            var p = document.createElement('p')
+            p.className = 'danmu'
+            p.style.top = Math.random()*200 + 'px'
+            // console.log(Math.random())
+            p.style.color = 'red'
+            p.innerHTML = content
+            wrap.appendChild(p)
+            setTimeout(function(){
+                p.className = 'danmu active'
+            },10)
+            setTimeout(function(){
+                wrap.removeChild(p)
+            },6000)
+        }
+        var progressDanmu = function () {
+            //对比当前时间和第一条弹幕的事件
+            if (danmuList[0] && danmuList[0].time - video.currentTime*1000 < 300) {
+                // console.log(0)
+                // console.log(danmuList.shift())
+                sendDanmu(danmuList.shift().content)
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

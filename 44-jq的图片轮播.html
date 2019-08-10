@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./jq.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            width: 1226px;
+            height: 460px;
+            position: relative;
+        }
+
+        .wrap .tp-list {
+            width: 100%;
+            height: 100%;
+        }
+
+        .wrap .tp-list .tp-item {
+            width: 100%;
+            height: 100%;
+            list-style: none;
+            /*很重要 让前面的样式消失，就是列表的前面的黑点，或者方块之类的 */
+            position: absolute;
+            top: 0;
+            z-index: 9;
+
+        }
+
+        .wrap .tp-list .tp-item.active {
+            z-index: 99;
+        }
+
+        .wrap .tp-list .tp-item:nth-child(1) {
+            background-color: red;
+        }
+
+        .wrap .tp-list .tp-item:nth-child(2) {
+            background-color: yellow;
+        }
+
+        .wrap .tp-list .tp-item:nth-child(3) {
+            background-color: blue;
+        }
+
+        .wrap .tp-list .tp-item:nth-child(4) {
+            background-color: green;
+        }
+
+        .wrap .tp-list .tp-item:nth-child(5) {
+            background-color: salmon;
+        }
+
+        .wrap .btn button {
+            width: 100px;
+            height: 100px;
+            line-height: 20px;
+            /* 行高 */
+            font-size: 20px;
+            /*字体大小 */
+            text-align: center;
+            /*文本的对齐方式 */
+            font-weight: 800;
+            /*字体的粗细值 */
+            position: absolute;
+            top: 180px;
+            /*该属性定义了一个定位元素的上外边距边界与其包含块上边界之间的偏移 */
+            z-index: 999;
+        }
+
+        .wrap .btn .pre {
+            left: 0;
+        }
+
+        .wrap .btn .next {
+            right: 0;
+        }
+
+        .wrap .point-list {
+            width: 200px;
+            height: 50px;
+            list-style: none;
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            z-index: 999;
+        }
+
+        .wrap .point-list .point {
+            width: 20px;
+            height: 20px;
+            background-color: whitesmoke;
+            border-radius: 50%;
+            float: left;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="tp-list">
+            <li class="tp-item">0</li>
+            <li class="tp-item">1</li>
+            <li class="tp-item">2</li>
+            <li class="tp-item">3</li>
+            <li class="tp-item">4</li>
+        </ul>
+        <div class="btn">
+            <button class="pre">
+                <</button>
+                    <button class="next">></button>
+        </div>
+        <ul class="point-list">
+            <li class="point" num="0">0</li>
+            <li class="point" num="1">1</li>
+            <li class="point" num="2">2</li>
+            <li class="point" num="3">3</li>
+            <li class="point" num="4">4</li>
+        </ul>
+    </div>
+  <script>
+      var index = 0
+        var items = $('.tp-item')
+        
+
+        var go = function () {
+            items.removeClass('active')
+            items.eq(index).addClass('active')
+        }
+        var gonext = function () {
+            if (index == items.length - 1) {
+                index = 0;
+            } else {
+                index++
+            }
+            go()
+        }
+        var goprev = function () {
+            if (index == 0) {
+                index = 4;
+            } else {
+                index--
+            }
+            go()
+        }
+        $('.pre').on('click', function () {
+            goprev()
+        })
+        $('.next').on('click', function () {
+            gonext()
+        })
+        $('.point').on('click',function(){
+            index = parseInt( $(this).attr('num'))
+            go()
+        })
+        var ismove = true
+        setInterval(function(){
+            if(ismove){
+                gonext()
+            }else{
+
+            }
+            
+        },500)
+        $('.wrap').on('mouseenter',function(){
+            ismove = false
+        }).on('mouseleave',function(){
+            ismove = true
+        })
+
+  
+  
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6深度精讲</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="wrap">123</div>
+    <script>
+        //1，   定义变量
+        let a = 1
+        //作用于是限制于代码块之间起作用
+        for (let i = 0; i < 10; i++) {
+            //这里的let只用于这个for循环当中
+        }
+        {
+            //这是一个代码块
+            let a = 1
+            console.log(a)
+        }
+        {
+            let a = 2
+            console.log(a)
+            //这两个a变量互相不影响
+        }
+        var b = 1
+        //是用于全局了
+        const c = 1
+        //是定义常量的，定义了就不允许修改了
+
+        //2，   箭头函数
+        // var a = ()=> { }
+        //1,如果只有一个参数，可以省略（），a=>{}
+        //2，如果函数只有一行return，那么{}和return都可以省略 a=> Math.abs(a)
+        //3,箭头函数保留调用对象的this
+        document.getElementById('wrap').addEventListener('click', function () {
+            console.log('直接回调this', this)
+            var me = this
+            setTimeout(() => {
+                console.log('捕捉的this', me)
+                console.log('定时器的this', this)
+            }, 1000)
+        })
+
+        // 3，   类和继承
+        // var Animal = function( type,weight){
+        //     this.type = type
+        //     this.weight = weight
+        // }
+        // var Human = function(name){
+        //     this.name = name
+
+        // }
+        // Human.prototype = new Animal()//不能继承属性
+        // var xiaohong = new Human('xiaohong')
+        //人继承动物
+        class Animal {
+            constructor(type, weight) {//这是构造函数：意思是说这个函数在构造的时候就执行的，这里面的属性是每个函数都有的
+                this.type = type
+                this.weight = weight
+            }
+            breath() {//这个是Animal独有的属性
+                console.log('我会呼吸')
+            }
+        }
+        class Human extends Animal {
+            constructor(name, weight) {
+                super('人', weight)
+                //super相当于调用了父类的构造函数，相当于把super的两个参数传入Animal里面的constructer里面
+                this.name = name
+            }
+            study() {//这是Human独有的
+                console.log('我会学习')
+            }
+        }
+        var xiaoming = new Human('小明', 334)//这里面传入几个参数，主要看的是Human的conster()这个里面有几个参数
+        //xiaoming这个对象原本属性有：type，weight，name,继承的是breath属性，自己独有的是study属性
+
+
+        //4.   新的关键字 操作符 解构赋值
+        // var head = document.head
+        // var body = document.body
+        var { head, body } = document
+
+        var book = {
+            name : 'shu',
+            page : 200
+        }
+       var  {name} = book//相当于var name = book.name
+
+        var arr = [2,5,6,7]
+        var brr = [8,6,1]
+        //拼接两个数组
+        var crr = [...arr,...brr]
+        console.log(crr)
+
+        //5,   字符串：可以换行
+        var tpl = `
+        woaini
+        shudfdfd
+        ffffff ${arr}
+        shdjifsnfi
+        `
+//这个字符串里面可以用${变量}
+
+
+
+
+
+
+        
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./font_bhbny9b3bcl/iconfont.css">
+    <title>小米固定宽度式布局导航条、购物车效果</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            min-width: 1226px;
+        }
+
+        .container .wrap {
+            width: 1226px;
+            margin: 0 auto;
+            /* background-color: red; */
+            height: 40px;
+        }
+
+        .container.nav {
+            height: 40px;
+            background-color: rgb(51, 51, 51);
+        }
+
+        .container.nav .wrap .left_menu {
+            height: 40px;
+            display: inline-block;
+        }
+
+        .container.nav .wrap .left_menu .left_menu_list .left_menu_item {
+            float: left;
+            height: 40px;
+            margin-right: 14px;
+            position: relative;
+        }
+
+
+        .container.nav .wrap .left_menu .left_menu_list .left_menu_item a {
+            height: 40px;
+            display: inline-block;
+            line-height: 40px;
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .container.nav .wrap .left_menu .left_menu_list .left_menu_item:last-child:after {
+            content: "";
+        }
+
+        .container.nav .wrap .left_menu .left_menu_list .left_menu_item:after {
+            content: "|";
+            color: #b0b0b0;
+            position: absolute;
+            right: -8px;
+            font-size: 12px;
+            top: 12px;
+        }
+
+        .container.nav .wrap .shopping_car_wrap {
+            width: 120px;
+            height: 40px;
+            display: block;
+            float: right;
+            color: #b0b0b0;
+            background-color: rgb(66, 66, 66);
+            text-align: center;
+            line-height: 40px;
+        }
+
+        .container.nav .wrap .shopping_car_wrap .shopping_car {
+            width: 100%;
+            height: 100%;
+            display: block;
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 12px;
+            position: relative;
+        }
+
+        .container.nav .wrap .shopping_car_wrap .shopping_car:hover {
+            background-color: white;
+            color: #ff6700;
+        }
+
+        .container.nav .wrap .shopping_car_wrap .shopping_car:hover .shopping_car_hover {
+            height: 98px;
+        }
+
+        .container.nav .wrap .shopping_car_wrap .shopping_car_hover {
+            height: 98px;
+            width: 316px;
+            background-color: white;
+            position: absolute;
+            right: 0px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+            height: 0px;
+            transition: all .3s;
+            overflow: hidden;
+            line-height: 98px;
+            color: black;
+            background-color: rgb(245, 243, 243);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container nav">
+        <div class="wrap">
+            <div class="left_menu">
+                <ul class="left_menu_list">
+                    <li class="left_menu_item">
+                        <a href="">小米商城</a>
+                    </li>
+                    <li class="left_menu_item">
+                        <a href=""> MIUI</a>
+                    </li>
+                    <li class="left_menu_item">
+                        <a href=""> MIUIj89</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="shopping_car_wrap">
+                <a href="" class="shopping_car">
+                    <i class="iconfont icon-gouwuche"></i> 购物车
+                    <div class="shopping_car_hover">购物车空空的</div>
+                    <!--重要：   注意：    做呼出的界面一定是它的子元素 -->
+                </a>
+
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

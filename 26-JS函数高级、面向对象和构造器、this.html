@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS函数高级、面向对象和构造器、this</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+
+    <script>
+        
+        //构造器：构造对象,命名要大写字母开头
+        var Book = function(price,name,author,pageCount){
+            this.price = price;
+            this.name = name;
+            this.author = author;
+            this.pageCount = package;
+            this.laozibudule = function(){
+                this.pageCount--
+                //这里的this指的是Book这个对象
+                 ma = this;
+                //捕捉本地this
+                setTimeout(function() {
+                    // this.name = '1234'
+                    //这里的this指的是window，因为定时器是window的方法
+                    me.name = '1234'
+                }, 1000);
+            }
+        }
+        var gaodengshuxue = new Book('30','hight','sun','7090')
+        var shuxuefenxi  = new Book('20','ht','uin','71690')
+
+    
+    
+    </script>
+    
+</body>
+</html>

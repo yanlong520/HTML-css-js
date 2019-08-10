@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>精讲及实战 - 视频播放器和弹幕</title>
+    <style>
+        body {
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <video src=".img/02.mp4" controls id="video"></video>
+    <!-- controls是出现控制栏的意思 -->
+    <span ivide id="currentTime"></span>/
+    <span id="duration"></span>
+    <script>
+        var video = document.getElementById('video')
+        var currentTimeDisplay = document.getElementById('currentTime')
+        var durationDisplay = document.getElementById('duration')
+        //方法：
+        // video.play()//播放
+        // video.pause()//暂停
+        // video.webkitRequestFullScreen//进入全屏
+        // video.webkitExitFullScreen//退出全屏
+        // video.currentTime()//播放的当前时间
+        // video.duration()//播放的总时间（秒）
+        // video.volume()//0--1 之间设置播放音量
+        //事件：（用于监听器当中）
+        // canplay 可以播放的时候
+        //canplaythrough 浏览器认为可以流畅播放全部视频
+        //playing 视频正在播放
+        //pause 暂停时间
+        //timeupdate 时间更新
+        video.addEventListener('timeupdate',function(){
+            //视频刚刚开始的时候没有加载完，计算不出来他的时长
+        currentTimeDisplay.innerHTML = video.currentTime
+        durationDisplay.innerHTML = video.duration
+        })
+        
+
+    </script>
+</body>
+
+</html>

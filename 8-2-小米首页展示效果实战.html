@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小米首页展示效果实战</title>
+    <style>
+        .wrap {
+            width: 234px;
+            height: 300px;
+            padding: 10px 0px;
+            box-sizing: border-box;
+            transition: all 0.5s;
+        }
+
+        .wrap:hover {
+            margin-top: -2px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 1.1);
+            /* rgba是CSS3中的属性，
+rgba括号中前3个数字代表着 red green blue三种颜色的rgb值，
+0-255，最后一个是设定这个颜色的透明度即alpha值。
+范围从0到1，越接近1，代表透明度越低。 */
+        }
+
+        .intro-img {
+            width: 160px;
+            height: 160px;
+            display: block;
+            margin: 0px auto;
+            margin-bottom: 24px;
+        }
+
+        .wrap a {
+            color: rgb(51, 51, 51);
+            font-size: 14px;
+            width: 100%;
+            display: block;
+            text-align: center;
+            margin-bottom: 2px;
+        }
+
+        .wrap .desc {
+            color: rgb(176, 176, 176);
+            font-size: 12px;
+            text-align: center;
+            margin-top: 0px;
+            margin-bottom: 10px;
+        }
+
+        .wrap .price .now-price {
+            color: #ff6700;
+            font-size: 14px;
+        }
+
+        .wrap .price {
+            font-size: 14px;
+            color: rgb(176, 176, 176);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <img src="./img/1.jpg" class="intro-img" alt="">
+        <a href="">小米 全陶瓷宇宙霸主</a>
+        <p class="desc">全面屏UN波动也全陶瓷</p>
+        <p class="price">
+            <span class="now-price"> 4299元 </span>
+            <del>4699</del>元</p>
+    </div>
+
+</body>
+
+</html>

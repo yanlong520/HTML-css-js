@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS - 基础语句：条件判断和循环语句、实用操作</title>
+</head>
+
+<body>
+
+    <script>
+        var a = 80;
+        if (a > 90) {
+            console.log("dhsud")
+        } else if (a < 90 && a > 60) {
+            //注意：这儿不能这么写：if（90>a>60）这样是错的
+            console.log("jd")
+        }
+        else {
+            console.log('hud')
+        }
+
+        var press = function (num) {
+            switch (num) {
+                case 1:
+                    {
+                        console.log("hiu")
+                        break;
+                    }
+                case 2:
+                    {
+                        console.log("u")
+                        break;
+                    }
+                default:
+                    {
+                        console.log("错了")
+                        break;
+                    }
+            }
+
+        }
+
+
+        var n = 10
+        while (n > 2) {
+            n--
+        }
+
+        for (var c = 0; c < 5; c++) {
+            console.log(c)
+        }
+
+
+        var s = "怎么这么热"
+        for (var i = 0; i < s.length; i++) {
+            var tan = ''
+            for (var j = 0 ; j<i; j++){
+                tan +="!"
+            }
+            console.log(s[i]+tan)
+        }
+
+    </script>
+</body>
+
+</html>

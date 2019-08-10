@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery 概念和入门 、 常用方法和属性</title>
+    <script src="./jq.js"></script>
+    <style>
+        .a {
+            height: 100px;
+            width: 100px;
+            background-color: aquamarine;
+            margin-top: 10px;
+        }
+
+        .b {
+            height: 100px;
+            width: 100px;
+            background-color: rgb(170, 209, 29);
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="a"></div>
+    <div class="a"></div>
+    <div class="a"></div>
+    <div class="a"></div>
+    <button class="c">点一下试试</button>
+    <div class="b" data-value='woaini'></div>
+
+
+    <script>
+        //0  区别： jQuery返回的是jQuery对象，而原生的方法是返回的是HTMLElement的对象
+
+
+        //1,   css的语法所以￥（‘里面是css语法’）
+        $('.a').eq(0).remove()//删除第一个元素
+
+        //2,    ajax
+        $.ajax({
+            type: 'GET',
+            url: 'http://baidu.com/s',
+            data: ',',
+            success: function () {}
+        })
+
+        //3,    事件监听器
+        $('.a').on('click', function () {
+            //给一个css属性赋值
+            $(this).css('background-color', 'red').html('<h1>变红色</h1>')
+            //获取一个css属性的值
+            console.log($(this).css('color'))
+            //给N个css属性赋值
+            $(this).css({
+                'background-color': 'red',
+                'color': 'green'
+            })
+            //注意这个this，要加$符号
+        })
+
+
+
+        //4,    类名操作removeClass()
+        $('.b').addClass('active')
+
+        $('.c').on('click', function () {
+            $('.b').toggleClass('active')
+        })
+
+
+        //5,    标签属性操作(获取，赋值)
+        $('.b').attr('data-value')
+        $('.b').attr('data-value','wobuainilezenmekeneng')
+
+    </script>
+</body>
+
+</html>

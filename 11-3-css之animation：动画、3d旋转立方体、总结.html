@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css之animation：动画、3d旋转立方体、总结</title>
+    <style>
+        .d1 {
+            width: 200px;
+            height: 200px;
+            background-color: black;
+            color: aliceblue;
+            animation:xiazhuan 2s ease 2s infinite;
+
+
+            animation-name: xiazhuan;
+            animation-delay: 2s;
+            animation-duration: 2s;
+            animation-timing-function: ease;
+            /* 变换曲线 */
+            animation-iteration-count: 1;
+            /* 动画执行次数 */
+            animation-direction: alternate;
+            /* 动画运行方向
+            alternate：动画执行完一次之后，反向执行一下
+            reverse：反向执行
+            alternate-reverse：反向的alternate */
+            animation-fill-mode: both;
+            /* 动画填充模式
+            backward：动画开始前应用第一帧
+            forward：动画执行完时候保留最后一帧
+            both：两者都有 */
+        }
+
+        @keyframes xiazhuan {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d1">
+        我爱你傻瓜
+    </div>
+
+</body>
+
+</html>

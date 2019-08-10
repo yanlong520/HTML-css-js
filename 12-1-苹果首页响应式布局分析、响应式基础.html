@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>苹果首页响应式布局分析、响应式基础</title>
+    <style>
+        /* 媒体查询 */
+
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+.d1{
+    height: 100px;
+    width: 100%;
+    background-color: aqua;
+}
+        @media only screen and (min-width:100px) and (max-width:640px) {
+
+            .d1 {
+                background-color: pink;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 响应式布局（针对不同的屏幕宽度分别展示不同的内容） -->
+
+    <div class="d1">
+
+    </div>
+
+</body>
+
+</html>

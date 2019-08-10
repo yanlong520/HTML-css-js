@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS - 系统入门：变量、数据类型和内存</title>
+    <style>
+    </style>
+
+</head>
+
+<body>
+    <div class="">
+
+
+    </div>
+    <script>
+        alert('我爱你;if you never abandon.i will  in life and death')
+        // string:字符串
+        var a = "身高八尺"
+        var b = "I Love You"
+        // number：数字
+        var i = 123.456
+        // array：数组
+        var arr = [1.2, 3, 5, "4"]
+        var arr2 = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ]
+        // object：对象
+        //在对象里面值称为属性。函数称为方法
+        var obj = {
+            height: "2.0m",
+            height2: 2.00,
+            duixiang: ["二狗", "大狗", "三狗"],
+            jiafa: function jiafa(q, w) {
+                return q + w
+            }
+        }
+        // Boolean：布尔
+        var dui = true;
+        var cuo = false;
+        // function：函数
+        function f(x, y) {
+            return x + y
+        }
+
+        // 1.弱类型
+        var a = "身高八尺"
+        var b = "I Love You"
+
+
+        typeof {}
+        typeof []
+        //返回值为都object
+
+        a.indexOf("八")
+        //查找
+        a.replace("八", "8")
+        //替换
+        //这个方法能把替换之后的返回来，但是之前的a不变；
+        parseInt(15.2453)
+        //返回整数：15
+
+
+
+        var add = function (a, b) {
+            //关键词return
+            //1,返回某些值
+            //2，函数执行到这儿之后就结束
+            // arguments 是记录函数的形参的
+            //函数内部的变量外面是无法访问的
+            return a + b
+            console.log(a + b)
+        }
+//值类型和引用类型
+//值类型不会改变原来的值
+//引用类型会改变原来的东西
+//NaN ==not a number（number类型）
+//null ==object类型
+//undefined==underfined类型
+
+
+//命名：$  _  ADH nujh 15461//只有这么几种
+//布尔型：var isHandsome;var isRaining
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax讲解、拉取json数据填充html项目</title>
+</head><body>
+    
+    <script>
+    var xhr =new XMLHttpRequest()
+    xhr.open('GET','http://baidu.com','true')
+    xhr.onreadystatechange = function(){
+        if (xhr.status ==200 && xhr.readyState ==4){
+            console.log(xhr.response)
+            var result = JSON.parse(xhr.response).result;
+        }
+    }
+//对象的遍历方式
+    var obj = {
+        name : 121,
+        age :20
+    }
+    for(var key in obj){
+        console.log(key,obj[key])
+    }
+    //语法有两个关键字分别是for和in
+    //这里的key是随便起的变量的名字；后面的对象访问方法必须是方括号语法。不能是点语法；因为方括号里面存的是字符串名字；
+    </script>
+</body>
+</html>

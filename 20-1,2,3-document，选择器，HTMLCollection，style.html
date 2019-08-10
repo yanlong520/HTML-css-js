@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>document，选择器，HTMLCollection，style</title>
+    <style>
+        #d1 {
+            height: 200px;
+            width: 200px;
+            background-color: #ff6700;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1">
+    </div>
+    <ul>
+        <li class="item" data-index='1'>1</li>
+        <li class="item">2</li>
+        <li class="item">3</li>
+    </ul>
+
+    <script>
+
+        //DOM
+        //document是一个特殊的变量
+        var d1 = document.getElementById('d1')
+        var item = document.getElementsByClassName('item');
+        var item0 = document.getElementsByClassName('item')[0];
+        //标签选择器
+        var lis = document.getElementsByTagName('li')
+        item0.style.color = "red"
+        //通用的获取标签属性的方式
+       var a = item0.getAttribute('data-index')
+       //设置标签属性的方式
+       item0.setAttribute('key','value')
+       console.log(a)
+
+
+    </script>
+</body>
+
+</html>

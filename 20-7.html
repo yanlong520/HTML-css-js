@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .d1{
+            height: 200px;
+            width: 200px;
+            background-color: brown;
+            position: absolute;
+            text-align: center;
+            line-height:65px;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="d1">
+跟随鼠 <br> 标移动<br>事件
+    </div>
+    
+
+    <script>
+        //跟随鼠标移动事件
+    var d1 = document.getElementsByClassName('d1')[0]
+ 
+    d1.addEventListener('mousemove',function(e){
+        var x = e.clientX
+        var y = e.clientY
+
+        d1.style.left = x - 100 + 'px'
+        d1.style.top = y  -100 +'px'
+
+        
+      
+
+    })
+
+        
+    
+    
+    </script>
+</body>
+</html>

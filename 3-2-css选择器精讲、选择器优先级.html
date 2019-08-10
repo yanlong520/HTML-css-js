@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css选择器精讲、选择器优先级</title>
+    <style>
+        /* 群组选择器 */
+
+        #ul1 #list1,
+        #ul2 #list1 {
+            color: cadetblue;
+        }
+
+        /* 兄弟节点选择器 */
+
+        .title1+li {
+            color: hotpink;
+        }
+
+        /* 选择相邻的一个 */
+
+        .title~li {
+            color: red !important;
+        }
+
+        /* 选择接下来的所有 */
+
+        /* 属性选择器 */
+
+        [target="_blank"] {
+            color: chartreuse;
+        }
+
+         /* 结构伪类选择器  */
+        .list li:last-child {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="a b" id="c">这是一个段落</p>
+    css 命名不能以数字开头
+    <ul id="ul1">
+        <li id="list1">15646</li>
+        <li id="list1">184</li>
+    </ul>
+    <ul id="ul2">
+        <li id="list1">12</li>
+        <li id="list1">0003515</li>
+    </ul>
+    <ul>
+        <li>26+</li>
+        <li class="title1">26+</li>
+        <li>26+</li>
+        <li>26+</li>
+        <li class="title">26+</li>
+        <li>26+</li>
+        <li>26+</li>
+        <li>26+</li>
+    </ul>
+    <a href="" target="_blank">85984564</a>
+    <a href="" target="_blank">85984564</a>
+    <a href="" target="_blank">85984564</a>
+    <ul class="list">
+        <li>26+</li>
+        <li class="title1">26+</li>
+        <li>26+</li>
+        <li>26+</li>
+        <li class="title">26+</li>
+        <li>26+</li>
+        <li>26+</li>
+        <li>26+</li>
+    </ul><br><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    选择器优先级：!important>行间>id>class>标签>*(通配符)
+</body>
+
+</html>

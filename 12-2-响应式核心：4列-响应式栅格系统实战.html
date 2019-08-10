@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>响应式核心：4列-响应式栅格系统实战</title>
+</head>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+    .d1 {
+        height: 100px;
+        background-color: aqua;
+    }
+
+    .d2 {
+        height: 100px;
+        background-color: hotpink;
+    }
+
+    @media only screen and (min-width:100px) and (max-width:640px) {
+        .col-s-1{
+            width: 25%;
+            float: left;
+        }
+        .col-s-2{
+            width: 50%;
+            float: left;
+        }
+        .col-s-3{
+            width: 75%;
+            float: left;
+        }
+        .col-s-4{
+            width: 100%;
+            float: left;
+        }
+    }
+
+
+
+    @media only screen and (min-width:640px) {
+        .col-l-1{
+            width: 25%;
+            float: left;
+        }
+        .col-l-2{
+            width: 50%;
+            float: left;
+        }
+        .col-l-3{
+            width: 75%;
+            float: left;
+        }
+        .col-l-4{
+            width: 100%;
+            float: left;
+        }
+
+    }
+</style>
+</style>
+
+<body>
+    <!-- 栅格系统 -->
+    <div class="d1 col-l-2 col-s-4">
+
+    </div>
+    <div class="d2 col-l-2 col-s-4">
+
+    </div>
+
+</body>
+
+</html>

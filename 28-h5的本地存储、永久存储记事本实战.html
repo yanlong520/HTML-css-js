@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>h5的本地存储、永久存储记事本实战</title>
+
+
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td>标题</td>
+            <td>
+                <input type="text" id="title">
+            </td>
+        </tr>
+        <tr>
+            <td>内容</td>
+            <td>
+                <input type="text" id="content">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="button" id="button">录入记录</button>
+            </td>
+        </tr>
+    </table>
+
+    <hr>
+    <ul id="list">
+
+    </ul>
+
+    <script>
+        var titleInput = document.getElementById('title')
+        var contentInput = document.getElementById('content')
+        var submitBtn = document.getElementById('button')
+        var listUl = document.getElementById('list')
+
+        var noteList = [
+
+        ]
+        var tpl = '<li>' +
+            '<p>{--date--}</p>' +
+            '<h1>{--title--}</h1>' +
+            '<h2>{--content--}</h2>' +
+            '</li>';
+
+        var render = function () {
+            var html = ''
+            for (var i = 0; i < noteList.length; i++) {
+                var times = noteList[i].date
+                var now = new Date(times)
+                var year = now.getFullYear()
+                var month = now.getMonth() + 1
+                var date = now.getDate()
+                var hours = now.getHours()
+                var min = now.getMinutes()
+                min = min < 10 ? '0' + min : min
+                s = now.getSeconds()
+                s = s < 10 ? '0' + s : s
+                var d = year = year + '-' + month + '-' + date + ' ' + hours + ':' + min + ':' + s
+
+                html += tpl.replace('{--date--}', d)
+                    .replace('{--title--}', noteList[i].title)
+                    .replace('{--content--}', noteList[i].content)
+            }
+            listUl.innerHTML = html
+        }
+
+        submitBtn.addEventListener('click', function () {
+            var title = titleInput.value
+            var content = contentInput.value
+            if (title.length == 0 || content.length == 0) {
+                alert('请输入完整的信息')
+                return
+            }
+
+            var note = {
+                title: title,
+                content: content,
+                date: new Date().getTime()
+            }
+            noteList.push(note)
+            localStorage.setItem('noteList', JSON.stringify(noteList))
+            noteList = JSON.parse(localStorage.getItem('noteList'))
+            render()
+            titleInput.value = ''
+            contentInput.value = ''
+        })
+        //如果之前本地没有存储数据，此程序就会报错：null没有length属性，此时应该进入下面的判断
+        noteList = JSON.parse(localStorage.getItem('noteList'))
+        if (noteList) {
+
+        } else {
+
+            noteList = []
+        }
+        render()
+
+
+
+    </script>
+</body>
+
+</html>

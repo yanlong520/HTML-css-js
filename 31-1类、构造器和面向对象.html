@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>类、构造器和面向对象</title>
+    <style>
+        .a {
+            height: 100px;
+            width: 100px;
+            background-color: rgb(24, 21, 21);
+        }
+    </style>
+
+
+    <div class="a"></div>
+    <div class="a"></div>
+</head>
+
+<body>
+    <script>
+        //localStorage是本地永久存储,不支持对象的存储，必须要用JSON.stringfy
+        var a = document.getElementsByClassName('a')
+        for (var i = 0; i < a.length; i++) {
+            a[i].addEventListener('click', function () {
+                // a[i].style.backgroundColor='red'//这么写是错误的，这里的i已经是for循环的最后一个值了，这里应该用this
+                this.style.backgroundColor = 'red'
+                //这里的this指的是使用它的一个对象 
+            })
+        }
+
+        var obj = {
+            f: function () {
+                console.log(this)
+                //这里的this指的是obj这个对象本身
+                setTimeout(function () {
+                    console.log(this)
+                    //这里的this指的是window，因为setTimout是window的方法
+                }, 1000)
+            }
+        }
+        //每一个类型都会有一个原型： __proto__
+        //Student类
+        var Student = function () {
+            this.name = '名字'
+            this.age = '40'
+            this.study = function () {
+                console.log('study')
+            }
+        }
+        //s是实例
+        var s = new Student()
+        //继承
+        var Animal = function () {
+            this.eat = function () {
+                console.log('eat')
+            }
+        }
+        var Bird = function () {
+            this.fly = function () {
+                console.log('fly')
+            }
+        }
+        //继承方法一：原型继承，等号后面要的是一个对象，所以要用new给它变成对象
+        //原型继承：可以赋值一个对象做为它的原型
+        Bird.prototype = new Animal()
+        var b = new Bird()//此时的这个b对象就有fly和eat这两个属性
+        b.fly()//使用
+
+
+        //继承方法二
+        var Fish = function () {
+            Animal.call(this)
+            this.swim = function () {
+                console.log('swim')
+            }
+        }
+        var c = new Fish()
+        c.eat()
+
+        //继承方法三：es6
+        class Animals {
+            constructor() {
+
+            }
+            eat() {
+                console.log('woaini')
+            }
+        }
+        class Fishs extends Animals {
+            swim() {
+
+            }
+
+        }
+        var f = new Fishs()
+        f.eat()
+
+
+
+
+    </script>
+</body>
+
+</html>

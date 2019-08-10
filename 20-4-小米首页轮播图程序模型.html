@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小米首页轮播图程序模型</title>
+
+    <style>
+        ul {
+            list-style: none;
+            position: relative;
+        }
+
+        .item {
+            position: absolute;
+            width: 500px;
+            height: 400px;
+            /* display: none; */
+            opacity: 0;
+            z-index: 10;
+            transition: all 1s;
+        }
+
+        .show {
+            /* display: block; */
+            opacity: 1;
+            z-index: 100;
+        }
+
+        .item:nth-child(1) {
+            background-color: aqua;
+        }
+
+        .item:nth-child(2) {
+            background-color: rgb(51, 219, 17);
+        }
+
+        .item:nth-child(3) {
+            background-color: rgb(59, 13, 187);
+        }
+
+        .item:nth-child(4) {
+            background-color: rgb(194, 23, 128);
+        }
+
+        .item:nth-child(5) {
+            background-color: rgb(219, 223, 22);
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li class="item show">0</li>
+        <li class="item">1</li>
+        <li class="item">2</li>
+        <li class="item">3</li>
+        <li class="item">4</li>
+    </ul>
+
+    <script>
+        lis = document.getElementsByClassName('item')
+        var index = 0;
+        var clear  = function(){
+            for(var i = 0; i <lis.length; i++){
+                lis[i].className = "item"
+            }
+        }
+        var goNext = function () {
+            if (index == lis.length - 1) {
+                index = 0
+            } else {
+                index++;
+            }
+             clear()
+            lis[index].className = 'item show'
+        }
+
+
+    </script>
+</body>
+
+</html>

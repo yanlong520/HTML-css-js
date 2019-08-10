@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="iconfont.css">
+    <style type="text/css">
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        ul{
+            list-style: none;
+        }
+        .container{
+            width: 100%;
+            min-width: 1226px;
+        }
+        .container .wrap{
+            width: 1226px;
+            margin: 0px auto;
+            height: 40px;
+        }
+        .container.nav{
+            height: 40px;
+            background-color: rgb(51,51,51);
+        }
+        .container.nav .wrap .left-menu{
+            height: 40px;
+            display: inline-block;
+        }
+        .container.nav .wrap .left-menu .left-menu-list .left-menu-item{
+            float: left;
+            height: 40px;
+            margin-right: 14px;
+            position: relative;
+        }
+        .container.nav .wrap .left-menu .left-menu-list .left-menu-item a{
+            height: 40px;
+            display: inline-block;
+            line-height: 40px;
+            text-decoration: none;
+            color: #b0b0b0;
+            font-size: 12px;
+        }
+        .container.nav .wrap .left-menu .left-menu-list .left-menu-item:last-child:after{
+            content: "";
+        }
+        .container.nav .wrap .left-menu .left-menu-list .left-menu-item:after{
+            content: "|";
+            color: #b0b0b0;
+            position: absolute;
+            right: -8px;
+            font-size: 12px;
+            top: 12px;
+        }
+        .container.nav .wrap .shopping-car-wrap{
+            height: 40px;
+            width: 120px;
+            display: block;
+            float: right;
+            background-color: rgb(66,66,66);
+            color: #b0b0b0;
+            text-align: center;
+            line-height: 40px;
+        }
+        .container.nav .wrap .shopping-car-wrap .shopping-car{
+            width: 100%;
+            height: 100%;
+            display: block;
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        .container.nav .wrap .shopping-car-wrap .shopping-car:hover{
+            background-color: white;
+            color: #ff6700;
+        }
+        .container.nav .wrap .shopping-car-wrap .shopping-car:hover .shopping-car-hover{
+            height: 98px;
+        }
+        .container.nav .wrap .shopping-car-wrap .shopping-car .shopping-car-hover{
+            height: 98px;
+            width: 316px;
+            background-color: white;
+            position: absolute;
+            right: 0px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+            height: 0px;
+            transition: all .3s;
+            overflow: hidden;
+            line-height: 98px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container nav">
+        <div class="wrap">
+            <div class="left-menu">
+                <ul class="left-menu-list">
+                    <li class="left-menu-item"><a href="">小米商城</a></li>
+                    <li class="left-menu-item"><a href="">MIUI</a></li>
+                    <li class="left-menu-item"><a href="">loT</a></li>
+                    <li class="left-menu-item"><a href="">云服务</a></li>
+                    <li class="left-menu-item"><a href="">金融</a></li>
+                    <li class="left-menu-item"><a href="">有品</a></li>
+                    <li class="left-menu-item"><a href="">小爱开放平台</a></li>
+                    <li class="left-menu-item"><a href="">政企服务</a></li>
+                    <li class="left-menu-item"><a href="">资质证件</a></li>
+                    <li class="left-menu-item"><a href="">协议规则</a></li>
+                    <li class="left-menu-item"><a href="">下载app</a></li>
+                    <li class="left-menu-item"><a href="">Select Region</a></li>
+                </ul>
+            </div>
+            <div class="shopping-car-wrap">
+                <a href="" class="shopping-car">
+                   <i class="iconfont icon-gouwuchekong"></i> 购物车
+                   <div class="shopping-car-hover">
+                       购物车怎么那么空
+                   </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

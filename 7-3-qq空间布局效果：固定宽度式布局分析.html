@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>7-3-qq空间布局效果：固定宽度式布局分析</title>
+    <style>
+        body {
+            background-color: hotpink;
+            height: 100%;
+            background-image: url("./img/1.jpg");
+            background-size: auto 100%;
+
+        }
+        .container{
+            width: 880px;
+            margin: 0px auto;
+        }
+        .bg{
+            width: 100%;
+            height: 100%;
+            background-image: url("./img/1.jpg");
+            background-size: auto 100%;
+            z-index: 1;
+        }
+
+        .wrap {
+            width: 414px;
+            height: 312px;
+            border: 2px solid rgb(238, 238, 238);
+            background-color: white;
+            margin: 0px auto;
+            position: relative;
+            top: 100px;
+
+        }
+
+        .wrap .title {
+            margin-top: 6px;
+            margin-bottom: 16px;
+            font-size: 20px;
+            color: rgb(51, 51, 51);
+            text-align: center;
+        }
+
+        .wrap .info {
+            color: rgb(102, 102, 102);
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .wrap .info a {
+            color: rgb(52, 129, 207);
+            text-decoration: none;
+        }
+
+        .wrap #form {
+            width: 272px;
+            height: 150px;
+            margin: 0px auto;
+            text-align: center;
+        }
+
+        .wrap #form .input {
+            width: 268px;
+            height: 38px;
+            padding: 10px;
+            padding-right: 0px;
+            box-sizing: border-box;
+            margin-bottom: 17px;
+            border-radius: 3px;
+            border: 1px solid rgb(214, 214, 214);
+        }
+
+        .wrap #form #btn {
+            box-sizing: content-box;
+            border-radius: 3px;
+            width: 258px;
+            height: 37px;
+            border: none;
+            padding: 1px 7px 2px 7px;
+            background-color: rgb(136, 210, 48);
+            color: white;
+            font-size: 17px;
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg"></div>
+    <div class="container">
+        <div class="wrap">
+            <div class="title">账号密码登录</div>
+            <div class="info">推荐使用
+                <a href="">快速安全登录</a>防止盗号</div>
+            <form action="" id="form">
+                <input class="input" type="text" placeholder="支持QQ号/邮箱/手机号登录">
+                <input class="input" type="text" placeholder="密码">
+                <button type="button" id="btn">登 录</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

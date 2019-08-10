@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>页面效果基础 - 监听器</title>
+    <style>
+    *{
+        padding: 0px;
+        margin: 0px;
+    }
+    .d1{
+        height: 200px;
+        width: 200px;
+        background-color: #ff6700;
+        position: absolute;
+    }
+
+
+    </style> 
+</head>
+<body>
+    <input type="text" class="inp">
+    <div class="d1">
+
+
+    </div>
+
+    <script>
+    //监听事件
+    var d1 = document.getElementsByClassName("d1")[0];
+    var position = {
+        up : 0,
+        left : 0
+    }
+    var up = function(){
+        position.up -=20
+        d1.style.top = position.up + 'px';
+    }
+    //鼠标事件：mousedown mouseup click mouseover mouseleave
+    //键盘事件：keypress keyup keydown
+    document.addEventListener('keypress',function(event){
+        console.log(event.key)
+        switch (event.key) {
+            case 'w':
+                alert("向上走了")
+                up();
+                break;
+        
+            default:
+            alert(10)
+                break;
+        }
+    })
+    
+    // d1.addEventListener('click',function(){
+    //     alert("huehafkdhkshdfhs")
+    // })
+    var handle = function(){
+        alert("huehafkdhkshdfhs")
+    }
+    d1.addEventListener('click',handle)
+    //handle函数的后面没有（）；
+
+
+
+    //表单事件:focus(获取焦点) blur(失去焦点)  input(输入的值)
+    var inp = document.getElementsByClassName('inp')[0]
+
+
+
+    </script>
+</body>
+</html>

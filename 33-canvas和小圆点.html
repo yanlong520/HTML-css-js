@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas和小圆点</title>
+</head>
+
+<body>
+    <canvas width="500" height="500" id="canvas"></canvas>
+    <!-- 注意这儿的width和height只是一个数字，没有加px-->
+    <script>
+        var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d')//不用纠结是固定的写法
+
+        //画布知识点
+        // 矩形 <br>
+        //     ctx.rect( [起始点 x] , [起始点 y] , [宽度 w] , [高度h] ) <br>
+        //     <br>
+        // 弧形 <br>
+        //     ctx.arc( [起始点 x] , [起始点 y] , [半径 r] , [开始角] , [结束角] , [是否逆时针] ) <br>
+        //     <br>
+        // 线段 <br>
+        //     ctx.moveTo( [起始点 x] , [起始点 y] ) <br>
+        //     ctx.lineTo( [终点 x] , [终点 y] ) <br>
+        // ctx.linewidth = 4//改变线的宽度
+        //     <br>
+        // 文字
+        // ctx.filltext('今天很热'，x,y)
+        // 填充方法 <br>
+        //      ctx.fill() <br><!--填充的意思，全部填充 -->
+        //     ctx.stroke() <br><!--填充的意思，仅仅是边框填充,直线不能用这个填充 -->
+        //    ctx.fillstyle = '#ff6700' <!-- 填充颜色 -->
+        // 画布清空    ：   因为画布不允许改变大小，只要稍微改变就清空重新画
+        // canvas.width = canvas.width
+        //防止中间出现链接的线
+        // ctx.beginPath()和ctx.closePath()
+
+        var Point = function () {
+            this.x = Math.random() * canvas.width;
+            this.r = Math.random() * 20 + 5;
+            this.speed = Math.random() * 2 + 1
+        }
+        var pointArr = []
+        for (var i = 0; i < 7; i++)//起点是随机的，产生了7个小球
+        {
+            pointArr.push(new Point())
+        }
+
+
+        setInterval(function () {
+            canvas.width = canvas.width//清空画布
+            for (var i = 0; i < pointArr.length; i++) {
+                var p = pointArr[i]
+                if (p.x > canvas.width + p.r) {//这里面的判断是，判断如果小球运动到边界的时候，让他又回到起始点继续运动
+                    p.x = - p.r
+                    p.r = Math.random() * 20 + 5
+                } else {
+                    p.x += p.speed
+                }
+                ctx.fillStyle = 'red'
+                ctx.arc(p.x, 150, p.r, 0, Math.PI * 2, false)
+                ctx.fill()
+            }
+        }, 100)
+
+
+
+    </script>
+</body>
+
+</html>

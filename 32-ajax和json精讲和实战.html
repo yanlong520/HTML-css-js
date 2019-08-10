@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax和json精讲和实战</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // json 格式：以js对象格式来表示数据，键值对形式，但是字符串的形式
+        // [{
+        //     "name": "xiaoming",
+        //     "age": 20,
+        // }, 
+        // {
+        //     "parents": ["dad", "mum"]
+        // },
+        //  {
+        //     "isbeautiful": ture
+        // }]
+
+
+        JSON.parse()//解析，把json转化为对象
+        JSON.stringify()//序列化，把对象转化为json
+
+
+        var xhr = new XMLHttpRequest()
+        xhr.open('GET', 'http://skipper.fun/pb/getAllContact', true)
+        xhr.send()
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // console.log(xhr.response)
+                var  result = JSON.parse(xhr.response)
+                console.log(result)
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

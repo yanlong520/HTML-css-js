@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>伪类、为qq空间项目添加伪类效果</title>
+    <style>
+        .d1 {
+            width: 100px;
+            height: 100px;
+            background-color: palegreen;
+
+        }
+
+        /* 覆盖的时候 */
+
+        .d1:hover {
+            background-color: blue;
+        }
+
+        /* 鼠标按下去没有放起来的时候 */
+
+        .d1:active {
+            background-color: palevioletred;
+
+        }
+
+        .d2 {
+            outline: none;
+            /* 去掉原来的表框 */
+        }
+
+        /* 焦点只有input有这个属性 */
+
+        .d2:focus {
+            border: navy 2px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d1"></div>
+    <input type="text" class="d2">
+
+</body>
+
+</html>
